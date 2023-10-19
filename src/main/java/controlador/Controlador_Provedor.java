@@ -76,6 +76,21 @@ public class Controlador_Provedor implements ActionListener {
             String valorSexo = pro.getJCboxsexo_pro().getSelectedItem().toString();
             int sexo = mod_pro.llenarCombo("sexo").get(valorSexo);
 
+             
+            java.util.Date fec = pro.getjDateFecha_nacimProvee().getDate();
+            long fe = fec.getTime();
+            java.sql.Date fecha = new Date (fe);
+            
+            mod_pro.setIdpro(Integer.parseInt(pro.getjTxtinserIdprovedor().getText()));
+            mod_pro.setTi_po(setTi_po);
+            mod_pro.setNom(pro.getjTxtinserNombre().getText());
+            mod_pro.setIdsex(sexo);
+            mod_pro.setCorr(pro.getjTxtinserCorreo().getText());
+            mod_pro.setTele(pro.getjTxtinserTelefono().getText());
+            mod_pro.setDirec(pro.getjTxtinserDirecc().getText());
+            mod_pro.setTi_po(ti_po);
+            mod_pro.setFech_naci(fec);
+
         }
         }
        
