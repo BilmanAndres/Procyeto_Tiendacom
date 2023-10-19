@@ -1,7 +1,9 @@
 
 package modelo;
 
+import com.toedter.calendar.JDateChooser;
 import controlador.Conexion;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +12,9 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 public class Modelo_Proveedor {
@@ -138,6 +142,22 @@ public class Modelo_Proveedor {
 
         }
         conect.cerraConexion();
-    }    
+    } 
+     public void limpiar_proveedor(Component[] panel) {
+        for (Object control : panel) {
+            if (control instanceof JTextField) {
+                ((JTextField) control).setText("");
+
+            }
+            if (control instanceof JComboBox) {
+                ((JComboBox) control).setSelectedItem("Seleccionar...");
+            }
+            if (control instanceof JDateChooser) {
+                ((JDateChooser) control).setDate(null);
+            }
+        }
+
+    }
 
 }
+
