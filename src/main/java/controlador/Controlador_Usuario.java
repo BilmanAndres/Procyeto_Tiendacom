@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Date;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -72,6 +73,22 @@ public class Controlador_Usuario implements ActionListener {
          
          int sexo = mode_usu.llenarCombo("sexo").get(valorSexo);
          int cargo = mode_usu.llenarCombo("cargo").get(valorCargo);
+
+        char[] contra = usu.getjPasinsert_clave().getPassword();
+        String contrasena = String.valueOf(contra);
+        
+        mode_usu.setIdUsu( Integer.parseInt(usu.getjTextinsert_ususario().getText()));
+        mode_usu.setNom(usu.getjTextisert_nombre().getText());
+        mode_usu.setTelef(usu.getjTextinsert_telefono().getText());
+        mode_usu.setCorr(usu.getjTextinsert_correo().getText());
+        mode_usu.setDirec(usu.getjTextinser_direccion().getText());
+        mode_usu.setIdsex(sexo);
+        mode_usu.setIdcarg(cargo);//setIdcarg(idcarg);
+        mode_usu.setLogi(usu.getjTextinsert_login().getText());
+        mode_usu.setClav(contrasena);
+        mode_usu.setFech_naci(fecha);
+        
+            
      }  
        
     }
