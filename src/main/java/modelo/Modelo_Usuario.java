@@ -13,7 +13,6 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JComboBox;
-
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -147,29 +146,28 @@ public class Modelo_Usuario {
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro de almacenamineto", "Registro", idsex);
             cn.close();
-            JOptionPane.showMessageDialog(null, "Error", "Error", idsex);
-            cn.close();
         } catch (SQLException y) {
-            System.out.println("Error");
+            y.printStackTrace();
 
         }
         conect.cerraConexion();
     }
    
-public void limpiar (Component[]panel){
-    for (Object control : panel){
-        if (control instanceof JTextField){
-            ((JTextField)control).setText("");
-            
-        }
-        if (control instanceof JComboBox){
-            ((JComboBox)control).setSelectedItem("Seleccionar...");
-        }
-        if (control instanceof JDateChooser){
-            ((JDateChooser)control).setDate(null);
-        }
-    }
+public void limpiar(Component[] panel) {
+        for (Object control : panel) {
+            if (control instanceof JTextField) {
+                ((JTextField) control).setText("");
 
+            }
+            if (control instanceof JComboBox) {
+                ((JComboBox) control).setSelectedItem("Seleccionar...");
+            }
+            if (control instanceof JDateChooser) {
+                ((JDateChooser) control).setDate(null);
+            }
+        }
+
+    }
 }
 }
 
