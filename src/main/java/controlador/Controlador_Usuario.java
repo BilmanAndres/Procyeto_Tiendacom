@@ -11,8 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.Modelo_Usuario;
 import vista.Principal;
-import vista.Usuarios;
-
+import vista.Usuarios;;
 
 public class Controlador_Usuario implements ActionListener {
 
@@ -74,6 +73,10 @@ public class Controlador_Usuario implements ActionListener {
          int sexo = mode_usu.llenarCombo("sexo").get(valorSexo);
          int cargo = mode_usu.llenarCombo("cargo").get(valorCargo);
 
+       java.util.Date fech = usu.getjDateChooserFecha_nacimiento().getDate();
+         long fe = fech.getTime();
+         java.sql.Date fecha = new Date (fe);
+      
         char[] contra = usu.getjPasinsert_clave().getPassword();
         String contrasena = String.valueOf(contra);
         
@@ -87,8 +90,9 @@ public class Controlador_Usuario implements ActionListener {
         mode_usu.setLogi(usu.getjTextinsert_login().getText());
         mode_usu.setClav(contrasena);
         mode_usu.setFech_naci(fecha);
+       
+        mode_usu.insertarUsuarios();
         
-            
      }  
        
     }
